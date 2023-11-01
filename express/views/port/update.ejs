@@ -1,0 +1,16 @@
+<form method="POST" class="d-flex flex-column w-50 m-auto my-5" enctype="multipart/form-data"
+    action="/api/book/<%-data._id%>">
+    <input class="form-control" required type="text" name="title" placeholder="Title" value=<%-data.title%>/>
+    <textarea class="my-4 form-control" required name="description"
+        placeholder="Description"><%-data.description%></textarea>
+    <input class="form-control mb-4" required type="text" name="authors" placeholder="Authors" value=<%-data.authors%>/>
+    <input class="form-control" required type="text" name="fileName" placeholder="FileName" value=<%-data.fileName%>/>
+
+    <label for="inputCover" class="form-label mt-4">Обложка книги</label>
+    <input class="mb-4 form-control" type="file" name="fileCover" />
+
+    <label for="inputBook" class="form-label">Страницы книги</label>
+    <input id="inputBook" class="mb-4 form-control" type="file" accept="image/*, .pdf" multiple name="fileBook" />
+
+    <button class="btn btn-primary w-25" type="submit">Сохранить</button>
+</form>

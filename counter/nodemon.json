@@ -1,0 +1,17 @@
+{
+    "watch": [
+        "./"
+    ],
+    "ext": "ts,json",
+    "ignore": [
+        "src",
+        "node_modules",
+        "Dockerfile",
+        "package.json",
+        "package-lock.json",
+        "tsconfig.json",
+        "nodemon.json",
+        ".gitignore"
+    ],
+    "exec": "ts-node ./index.ts"
+}

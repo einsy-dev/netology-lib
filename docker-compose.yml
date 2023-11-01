@@ -1,0 +1,16 @@
+version: '1'
+services:
+  app:
+    build: ./express
+    ports:
+      - 3000:3000
+    depends_on:
+      - counter
+  counter:
+    build: ./counter
+    volumes:
+      - myvolume:/counter/src
+    ports:
+      - 27017:3000
+volumes:
+  myvolume:
