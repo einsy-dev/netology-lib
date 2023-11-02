@@ -3,7 +3,7 @@ var app = express();
 var fs = require("fs");
 var databasePath = "./src/db.json";
 var PORT = 3000;
-app.get("/:id", function (req, res) {
+app.get("/api/:id", function (req, res) {
     var id = req.params.id;
     var data = JSON.parse(fs.readFileSync(databasePath, "utf-8"));
     if (!data[id]) {
@@ -15,7 +15,7 @@ app.get("/:id", function (req, res) {
         res.status(200).send({ data: data[id] });
     }
 });
-app.post("/:id/inc", function (req, res) {
+app.post("/api/:id/inc", function (req, res) {
     var id = req.params.id;
     var data = JSON.parse(fs.readFileSync(databasePath, "utf-8"));
     data[id]++;

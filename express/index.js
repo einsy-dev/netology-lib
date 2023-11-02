@@ -6,12 +6,14 @@ const { parsed: { PORT, MONGO_URL } } = require('dotenv').config();
 const app = express();
 const router = require('./src/routes/api');
 const appRouter = require('./src/routes/app');
+const cors = require('cors');
 const port = PORT || 3000;
 
 
-
+app.use(cors({ origin: '*' }));
 
 app.use(express.json());
+
 app.use('/api', router);
 
 app.use('/app', express.static(path.join(__dirname, 'public')));

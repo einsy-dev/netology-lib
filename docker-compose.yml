@@ -2,15 +2,23 @@ version: '1'
 services:
   app:
     build: ./express
+    networks:
+      - internet
+      - count
     ports:
       - 3000:3000
     depends_on:
       - counter
   counter:
     build: ./counter
-    volumes:
-      - myvolume:/counter/src
+    networks:
+      - count
     ports:
       - 27017:3000
-volumes:
-  myvolume:
+networks:
+  count:
+    name: count
+    driver: bridge
+  internet:
+    name: internet
+    driver: bridge

@@ -1,13 +1,13 @@
 const Book = require('../models/Book');
 
-
 class AppController {
     async main(req, res) {
-        const { type } = req.params
+        const { type, id } = req.params
         try {
             if (type === 'view') {
-                const { id } = req.params
                 const data = await Book.findById(id).select('-__v');
+                await fetch('http://counter:3000/api/' + id + '/inc', { method: 'POST' })
+                await fetch('http://counter:3000/api/' + id).then(res => res.json()).then(el => data.views = el.data);
                 res.render('index', { type: 'view', data: data });
             }
             else if (type === 'create') {
@@ -29,4 +29,4 @@ class AppController {
     }
 }
 
-module.exports = new AppController()    
+module.exports = new AppController()
