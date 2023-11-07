@@ -12,17 +12,25 @@
 
 <body class="container">
 
-    <a class="btn btn-primary my-4" href="/">Home</a>
+    <a class="btn btn-primary my-4" href="/app">Home</a>
+    <a class="btn btn-primary my-4" href="/app/login">Login</a>
+    <a class="btn btn-primary my-4" href="/app/register">Register</a>
+    <a class="btn btn-primary my-4" href="/user/profile">Profile</a>
 
-    <% if (type==='view' ) { %>
-        <%- include('./port/view.ejs') %>
-            <% } else if (type==='create' ) { %>
-                <%- include('./port/create.ejs') %>
-                    <% } else if (type==='update' ) { %>
-                        <%- include('./port/update.ejs') %>
-                            <% } else {%>
-                                <%- include('./port/index.ejs') %>
-                                    <% } %>
+    <% if (type==='login' ) { %>
+        <%- include('./port/login-register/login.ejs') %>
+            <% } else if (type==='register' ) { %>
+                <%- include('./port/login-register/register.ejs') %>
+                    <% } else if (type==='view' ) { %>
+                        <%- include('./port/view.ejs') %>
+                            <% } else if (type==='create' ) { %>
+                                <%- include('./port/create.ejs') %>
+                                    <% } else if (type==='update' ) { %>
+                                        <%- include('./port/update.ejs') %>
+                                            <% } else {%>
+                                                <%- include('./port/index.ejs') %>
+                                                    <% } %>
+
 </body>
 
 </html>

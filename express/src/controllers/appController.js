@@ -18,6 +18,12 @@ class AppController {
                 const data = await Book.findById(id).select('-__v');
                 res.render('index', { type: 'update', data: data });
             }
+            else if (type === 'login') {
+                res.render('index', { type: 'login' });
+            }
+            else if (type === 'register') {
+                res.render('index', { type: 'register' });
+            }
             else {
                 const data = await Book.find().select('-__v');
                 res.render('index', { type: 'index', data: data });
