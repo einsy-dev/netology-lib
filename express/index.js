@@ -57,10 +57,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // Routes
+
 app.use('/app', appRouter);
 app.use('/api', router);
 app.use('/user', userRouter);
-
+app.use('/', (req, res) => res.redirect('/app'))
 
 
 const start = async () => {
