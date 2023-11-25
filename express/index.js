@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
 const bodyParser = require('body-parser');
 const { PORT, MONGO_URL } = require('dotenv').config().parsed;
 const User = require('./src/models/User')
@@ -68,7 +67,7 @@ const start = async () => {
     try {
         await mongoose.connect(MONGO_URL);
         await app.listen(port, () => {
-            console.log(`Server is running on port ${port}`);
+            console.log(`Server is running on port http://localhost:${port}`);
         })
     } catch (error) {
         console.log('err' + error);
