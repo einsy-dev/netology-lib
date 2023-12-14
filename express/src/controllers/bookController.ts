@@ -6,6 +6,7 @@ import fs from "fs";
 import { Request, Response } from "express";
 import container from "../inversify/inversify.config";
 import { BooksRepository } from "../inversify/entities";
+import { IBooksRepository } from "../inversify/interfaces";
 
 class BookController {
   async getAll(req: Request, res: Response) {
@@ -19,7 +20,7 @@ class BookController {
   
   async getById(req: Request, res: Response) {
     const { id } = req.params;
-    const repo = container.get(BooksRepository);
+    const repo = container.get<IBooksRepository>(BooksRepository);
     const book = await repo.getBook(id);
     res.json(book);
 
