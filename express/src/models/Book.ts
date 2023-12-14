@@ -10,4 +10,4 @@ const Book = new Schema({
     fileBook: { type: Array, required: true },
 })
 
-module.exports = model('Book', Book);
+export default model('Book', Book);

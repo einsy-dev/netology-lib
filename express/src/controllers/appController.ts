@@ -1,7 +1,8 @@
-const Book = require('../models/Book');
+import Book from '../models/Book';
+import { Request, Response } from 'express';
 
 class AppController {
-    async main(req, res) {
+    async main(req: Request, res: Response) {
         const { type, id } = req.params
         try {
             if (type === 'view') {
@@ -11,6 +12,7 @@ class AppController {
                 res.render('index', { type: 'view', data: data });
             }
             else if (type === 'create') {
+                console.log("object")
                 res.render('index', { type: 'create' });
             }
             else if (type === 'update') {
@@ -35,4 +37,4 @@ class AppController {
     }
 }
 
-module.exports = new AppController()
+export default new AppController()
